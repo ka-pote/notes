@@ -84,3 +84,12 @@ Theo foundation of db that helps understand how dbs process queries.
 | Union      | $\cup$       |                                  |
 | Intersect  | $\intersect$ |                                  |
 | Difference | $-$          |                                  |
+
+# Database Modeling
+
+## Chen's Notation
+
+> [!NOTE] o o i i a i o o o i a i
+> ![[ezgif-159a0c810704d6d5.gif]]
+> wait no wrong Chen
+> By [Zenerat](https://x.com/zenerat/status/1732598198789919038)

@@ -1,6 +1,6 @@
 # Modular Arithmetic
 ## Divisibility
-**$a$** is divisible by $b$ denoted by $b \mid a$ if there's an integer $k$ such that $$a = b \times k$$
+**$a$** is divisible by $b$  denoted by $b \mid a$ if there's an integer $k$ such that $$a = b \times k$$
 The intuitive sense of this definition is simple (for positive a & b):
 - Say we have an object
 - We'd like to split 'em into groups of size $b$
@@ -28,11 +28,14 @@ E.g.,
 	- ⬇️
 	- ![[Drawing 2026-02-01 17.17.08.excalidraw]]
 ## Congruence Relations
-We say that two numbers $a$ and $b$ are **_congruent modulo_** $m$ if they have the same remainder when divided by $m$. We write $$a \equiv b \text{ mod } m$$
+We say that two numbers $a$ and $b$ are **_congruent modulo_** $m$ if they have the same remainder when divided by $m$. We write $$a \equiv b \pmod{m}$$
 ## Properties of Modular Arithmetic
-1. \[(a mod n) + (b mod n)] mod n = (a + b) mod n
-2. \[(a mod n) - (b mod n)] mod n = (a - b) mod m
-3. \[(a mod n) \* (b mod n)] mod n = (a * b) mod n
+1. **Addition:**
+\[(a mod n) + (b mod n)] mod n = (a + b) mod n
+2. **Subtraction:**
+\[(a mod n) - (b mod n)] mod n = (a - b) mod m
+3. **Mulptiplcation:**
+\[(a mod n) \* (b mod n)] mod n = (a * b) mod n
 ### Laws & Identities
 0. Format: Property
 	- Expression
@@ -52,8 +55,8 @@ We say that two numbers $a$ and $b$ are **_congruent modulo_** $m$ if they have 
 # Congruence Relations & Modular Exponentiation
 ## Congruence Relation
 If $a$ and $b$ are integers and $m$ is a positive integer, them $a$ is ***congruent*** to $b$ if m iff $m \mid (a-b)$
-- The notation $a\equiv b$(mod $m$) says that $a$ is congruent to $b$ modulo $m$
-- We say that $a \equiv b$(mod $m$) is a congruence and that $m$ is its modulus
+- The notation $a\equiv b \pmod{m}$ says that $a$ is congruent to $b$ modulo $m$
+- We say that $a \equiv b \pmod{m}$ is a congruence and that $m$ is its modulus
 - Two integers are congruent mod $m$ if and only if they have the same remainder when divided by $m$
 - If $a$ isn't congruent to $b$ modulo $m$, we write $a \not\equiv b$(mod $m$)
 ## Modular Exponentiation
@@ -67,13 +70,14 @@ E.g.,
 	- ![[Drawing 2026-02-02 09.28.06.excalidraw]]
 - $242^{329} \mod 243$
 	- ![[CSC103-Discrete_structures_2 2026-02-02 09.32.25.excalidraw]]
-- $11^7 \mod 13$
+- $11^7 \pmod{13}$
 	- ![[CSC103-Discrete_structures_2 2026-02-02 09.40.29.excalidraw]]
-- $88^7 mod 187$
+- $88^7 \pmod{187}$
 	- ![[CSC103-Discrete_structures_2 2026-02-02 09.46.13.excalidraw]]
 - What's the last 2 digits of $29^5$?
 	- ![[CSC103-Discrete_structures_2 2026-02-02 09.56.59.excalidraw]]
 - $23^{16} \mod 30$
+
 $$\begin{align}
 = (((23^2)^2)^2)^2 \mod 30 \\
 = (((-7^2)^2)^2)^2 \mod 30 \\
@@ -91,7 +95,7 @@ Let $a,b \in Z - {0}$. The largest integer $d$ such that $d\mid a$ and also $d \
 E.g., gcd(24,36) = 12
 
 The integers $a$ & $b$ are **relatively coprime** if and only if gcd(a,b) = 1.
-E.g.,: 17, 22 (22 != Prime btw)
+E.g.,: 17, 22 (22 != Prime btw) ^Coprime
 
 The integers $a_1, a_2,…a_n$ are **pairwise relatively prime** if and only if gcd($a_i,a_j$) whenever $1 \leq i \lt j \leq n$
 
@@ -123,8 +127,13 @@ E.g.,
 	4. $\therefore gcd(252,105)=21$
 # Co-Prime, Phi Function & Multiplicative Inverse 
 ## Totient Function
+
+> [!NOTE] Formula
+> $$\phi(n)=n\prod_{p\, | \, n}(1-\frac{1}{p})$$
+
 - denoted as $\phi(n)$
 - $\phi (n)$ = number of positive integers less than $n$ that are relatively prime to $n$
+
 E.g.,
 - $\phi(31)=30$ since 31 is prime
 ##  Multiplicative Inverse
@@ -135,3 +144,79 @@ E.g.,
 >An integer $\bar{a}$ such that $\bar{a}a \equiv 1 (\mod m)$ is called a **multiplicative inverse** of $a (\mod m)$
 
 Multiplicative inverses can be used to solve congruences. If $ax \equiv b (\mod m)$, then $\bar{a}ax \equiv (\bar{a}b)(\mod m)$, thus $x \equiv (\bar{a}b)(\mod m)$.
+## Cryptography & RSA
+**Cryptography**: practice & study of techniques for secure communication in the presence of adversarial behavior
+
+### Foundations: Modular Arithmetic
+
+> [!NOTE] Definition
+> $$ a \equiv b \pmod{n}$$
+> Two integers $a$ and $b$ are congruent modulo $n$ if their difference (a-b) is divisible by n
+
+Think of a 12-hour clock. If it's 10:00 and 5 hours pass, it's 3:00, not 15:00.
+$$10 + 5 \pmod{12} = 3$$
+### Power of Modulo
+In cryptography, modular arithmetic acts as a "**trapdoor**." It keeps numbers withing a fixed range, preventing overflow and making it computationally difficult to reverse keys without specific keys.
+### Key Properties
+[[#Properties of Modular Arithmetic|Here]]
+
+### Primes
+The "atoms" of number theory. Every integer > 1 is either prime or a unique product of primes. RSA relies on the difficulty of reversing this multiplication
+
+### Greatest Common Divisor
+Largest positive integer that divides each of the integers
+[[#GCD And Euclidian Algorithm|Further reading]]
+- [[#Euclidian Algorithm]]
+- [[#^Coprime|Coprime]]
+### Euler's Totient Function $\phi\,(n)$
+$\phi\,(n)$ is the count of positive integers $\leq n$ that are **coprime** to $n$
+#### Critical Cases for RSA
+- If $p$ is prime: $\phi(p)=p-1$
+- if $n = p \cdot q$ (distinct primes): $\phi(n)=(p-1)(q-1)$
+#### Euler's Theorem
+If gcd(a,n) = 1, then:
+$$a^{\phi(n)} \equiv 1 \pmod{n}$$
+#### Why it matters
+This theorem is the "trapdoor" mechanism. It allows us to "undo" the encryption exponentiation
+
+> [!info] The RSA Connection
+> If we know $\phi(n)$, we can find a decryption exponent $d$ that reverses the encryption exponent $e$, without $\phi(n)$, finding $d$ is computationally impossible.
+
+### RSA Keygen
+1. **Select primes**
+Choose two (2) large distinct prime numbers, $p$ and $q$
+2. **Compute modulus** ($n$)
+Calculate $n = p \times q$. $n$ is the modulus for both keys
+3. **Calculate totient**
+Calculate $\phi(n) = (p-1)(q-1)$
+4. **Choose exponent** ($e$)
+Pick $e$ such that $1 \gt e \gt \phi(n)$ and $gcd(e,\phi(n))=1$
+5. **Compute private key** ($d$)
+Find $d$ such that $e \times d \equiv 1 \pmod{\phi(n)}$
+
+The result is public key that uses (n,e) and private key that uses (n,d). Security depends on the difficulty of factoring $n$ to find $p$ and $q$.
+
+1. Let $p = 5$, $q=11$, and $e=3$. Find the public and private keys
+
+$$
+\begin{align}
+n = 5 \times 11 \\
+n= 55\\\\
+\phi(n)=(5-1)(11-1)\\
+\phi(n)=40\\\\
+e(d) \equiv 1 \pmod{40}\\
+3(67) \equiv 1 \pmod{40}\\
+201 \equiv 1 \pmod{40}
+\end{align}$$
+Public Key: (55, 3)
+Private Key: (55, 67)
+
+2. If the public key is ($n=35,e=5$), encrypt the message M = 2.
+$$\begin{align}
+C= 2^{5} \pmod{35}\\
+2^5 = 32 \pmod{35}\\\\
+C =32
+\end{align}
+$$
+3. Why can't we just pick $e=2$ if $n=35$?
+$\phi(35)=24$. The requirement for exponents are $1 \gt e \gt \phi(n)$ and $gcd(e,\phi(n)) = 1$. $gcd(2, 24) = 2$, which violates the second requirement.

@@ -11,7 +11,7 @@ In languages like C, you need your memory to expand, you're going to need dynami
 Note: pointer asterisk can be after data type or variable name. I prefer the former
 
 
-(data type)* a = ([data type] \*) malloc(size, preferably "items \* sizeof(type)) )
+`(data type)* a = malloc(size, preferably "items * sizeof(type)) )` (It's recommended in C99+ to **_not_** cast malloc)  
 
 E.g.,
 ```
@@ -46,7 +46,6 @@ E.g.,
 ```
 int* b = (int *) realloc(a, (n+10) * sizeof(int) )
 ```
-Why a new pointer? Just for convenience really because what if it NULLs
 
 ---
 
@@ -131,3 +130,38 @@ _r 0;
 }
 ```
 
+## Doubly Linked List
+![[ITE14-Data_Structures_And_Algorithms 2026-02-09 15.37.44.excalidraw]]
+**Pros**
+- no need for second var 
+**Cons**
+- more space (2 pointers)
+- more operations/statements
+```c
+typedef struct list{
+int x;
+struct list *left;
+struct list *right;
+}list;
+```
+
+```c
+//node deletion in single ll iirc
+current = head;
+prev = NULL;
+while(current != NULL){
+	if(current->next == NULL){
+	prev->next = NULL;
+	free(current);
+	current = NULL;
+	}
+	prev = current;
+	current = current->next
+}
+
+```
+
+## Circular Linked List
+![[ITE14-Data_Structures_And_Algorithms 2026-02-16 15.38.16.excalidraw]]
+# Stack
+![[ITE14-Data_Structures_And_Algorithms 2026-02-16 16.12.10.excalidraw]]
