@@ -5,11 +5,11 @@
 - oop = java, cpp
 - fn = fn & expr = Lisp
 - logic = logic= prolog
-# Programming Paradigms and Java
+# Programming Paradigms
 ## OOP history 
-- introduced at mit in 50s
-- in 1980s C++ existed.
-- in early 90s, Java existed. 
+- introduced at MIT in 50s
+- in 1980s C++ was unleashed.
+- in early 90s, Java . 
 ## OOP?
 - Paradigm based on idea of _**objects**_ that may contain data, in the form of fields (aka _**attributes**_) in the form of procedures aka _**methods**_
 - aim is to bind the data & fn that operate on 'em do that no other part of code can access that data except that fn
@@ -75,4 +75,6 @@ s1 = a; s2 = b; s3 = c;
 }
 
 }
+
 ```
+

@@ -1,3 +1,7 @@
+$$\DeclareMathOperator{\gcd}{gcd}
+\def\nequiv{\not\equiv}
+$$
+
 # Modular Arithmetic
 ## Divisibility
 **$a$** is divisible by $b$  denoted by $b \mid a$ if there's an integer $k$ such that $$a = b \times k$$
@@ -58,17 +62,17 @@ If $a$ and $b$ are integers and $m$ is a positive integer, them $a$ is ***congru
 - The notation $a\equiv b \pmod{m}$ says that $a$ is congruent to $b$ modulo $m$
 - We say that $a \equiv b \pmod{m}$ is a congruence and that $m$ is its modulus
 - Two integers are congruent mod $m$ if and only if they have the same remainder when divided by $m$
-- If $a$ isn't congruent to $b$ modulo $m$, we write $a \not\equiv b$(mod $m$)
+- If $a$ isn't congruent to $b$ modulo $m$, we write $a \nequiv b \pmod{m}$
 ## Modular Exponentiation
 - a type of exponentiation performed over a modulus
 - i.e., $a^b$ mod $m$ or $a^b$ (mod $m$)
 $\def\mod{\text{ mod }}$
 E.g.,
-- $2^{33} \mod 30$
-- $3^{100} \mod 29$
-- $31^{500} \mod 30$
+- $2^{33} \pmod {30}$
+- $3^{100} \pmod {29}$
+- $31^{500} \pmod{30}$
 	- ![[Drawing 2026-02-02 09.28.06.excalidraw]]
-- $242^{329} \mod 243$
+- $242^{329} \pmod {243}$
 	- ![[CSC103-Discrete_structures_2 2026-02-02 09.32.25.excalidraw]]
 - $11^7 \pmod{13}$
 	- ![[CSC103-Discrete_structures_2 2026-02-02 09.40.29.excalidraw]]
@@ -92,7 +96,7 @@ $$\begin{align}
 # GCD And Euclidian Algorithm
 ## Greatest Common Divisor (GCD)
 Let $a,b \in Z - {0}$. The largest integer $d$ such that $d\mid a$ and also $d \mid b$ is called the **greatest common divisor** of $a$ & $b$. It's denoted by gcd(a,b).
-E.g., gcd(24,36) = 12
+E.g., $\gcd(24,36) = 12$
 
 The integers $a$ & $b$ are **relatively coprime** if and only if gcd(a,b) = 1.
 E.g.,: 17, 22 (22 != Prime btw) ^Coprime
@@ -105,13 +109,13 @@ E.g.,: 10, 17, & 21 are pairwise relatively prime, since gcd(10,17) = gcd(10,21)
 
 > [!NOTE] Lemma
 > Let $a=bq+r$, where $a,b,q,$ and $r$  are integers.
-> Then gcd(a,b) = gcd(b,r).
+> Then $\gcd(a,b) = \gcd(b,r).$
 
 > [!NOTE] Proof
 > Suppose that $d$ divides both $a$ & $b$. Then $d$ also divides $a-bq=r$.
 > Hence, any common divisor of $a$ & $b$ must be also be a common divisor of $b$ & $r$.
 > For the opposite direction suppose that $d$ divides both $b$ & $r$. Then $d$ also divides $bq+r=a$. Hence, any common divisor of $b$ & $r$ must be a common divisor of $a$ & $b$.
-> $\therefore gcd(a,b) = gcd(b,r)$
+> $\therefore \gcd(a,b) = \gcd(b,r)$
 
 This means that if $a \gt b$, then gcd(a,b), gcd(a,b, mod b), which directly yields the algorithm. (Note that both args have gotten smaller. One can show that its complexity is $O(\log b)$
 **To compute gcd(a,b):**
@@ -124,11 +128,11 @@ E.g.,
 	1. 252 % 105 = 42
 	2. 105 % 42 = 21
 	3. 42 % 21 = 0
-	4. $\therefore gcd(252,105)=21$
+	4. $\therefore \gcd(252,105)=21$
 # Co-Prime, Phi Function & Multiplicative Inverse 
 ## Totient Function
 
-> [!NOTE] Formula
+> [!Info] Formula
 > $$\phi(n)=n\prod_{p\, | \, n}(1-\frac{1}{p})$$
 
 - denoted as $\phi(n)$
@@ -144,10 +148,10 @@ E.g.,
 >An integer $\bar{a}$ such that $\bar{a}a \equiv 1 (\mod m)$ is called a **multiplicative inverse** of $a (\mod m)$
 
 Multiplicative inverses can be used to solve congruences. If $ax \equiv b (\mod m)$, then $\bar{a}ax \equiv (\bar{a}b)(\mod m)$, thus $x \equiv (\bar{a}b)(\mod m)$.
-## Cryptography & RSA
+# Cryptography & RSA
 **Cryptography**: practice & study of techniques for secure communication in the presence of adversarial behavior
 
-### Foundations: Modular Arithmetic
+## Foundations: Modular Arithmetic
 
 > [!NOTE] Definition
 > $$ a \equiv b \pmod{n}$$
@@ -158,7 +162,7 @@ $$10 + 5 \pmod{12} = 3$$
 ### Power of Modulo
 In cryptography, modular arithmetic acts as a "**trapdoor**." It keeps numbers withing a fixed range, preventing overflow and making it computationally difficult to reverse keys without specific keys.
 ### Key Properties
-[[#Properties of Modular Arithmetic|Here]]
+[[#Properties of Modular Arithmetic|Here]] ain't writing that again
 
 ### Primes
 The "atoms" of number theory. Every integer > 1 is either prime or a unique product of primes. RSA relies on the difficulty of reversing this multiplication
@@ -219,4 +223,35 @@ C =32
 \end{align}
 $$
 3. Why can't we just pick $e=2$ if $n=35$?
-$\phi(35)=24$. The requirement for exponents are $1 \gt e \gt \phi(n)$ and $gcd(e,\phi(n)) = 1$. $gcd(2, 24) = 2$, which violates the second requirement.
+$\phi(35)=24$. The requirement for exponents are $1 \gt e \gt \phi(n)$ and $\gcd(e,\phi(n)) = 1$. $\gcd(2, 24) = 2$, which violates the second requirement.
+
+# Combinatorics
+Discrete math branch focused on counting, arrangement, and selection
+
+## Multiplication Principle
+## Permutation
+$$P(n,r)= \frac{n!}{(n-r)!}$$
+## Combination
+$$C(n,r)=\frac{n!}{r!(n-r)!}$$
+## Pigeonhole Principle
+If $n$ items are put to $m$ containers, and $n > m$, then at least one container must contain more than one item.
+### Generalized Pigeonhole Principle
+$$[\,n/k\,] \text{ items}$$
+# Discrete Probability 
+## Probability $P(E)$
+Numerical measure of the likelihood that an event occur
+$$ 0 \leq P(E) \leq 1$$
+0 = impossible
+1 = guarantee
+### Formula
+$$P(E) = |E|\,/\,|S|$$
+$|E|$ = # of outcomes to event e
+$|S|$ = sample space
+### Sample space
+Possible outcomes of a rand experiment
+1. Collectively exhaustive
+Must cover every single possible result of the experiment
+2. Mutually exclusive 
+No two distinct in the set can occur simultaneously
+
+# 

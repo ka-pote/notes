@@ -93,3 +93,16 @@ Theo foundation of db that helps understand how dbs process queries.
 > ![[ezgif-159a0c810704d6d5.gif]]
 > wait no wrong Chen
 > By [Zenerat](https://x.com/zenerat/status/1732598198789919038)
+
+# Normalization (1nf, 2nf, 3nf)
+## Normalization?
+A technique of minimizing redundancy by org data to
+## Data redundancy 
+Repetition of data which takes spaces and causing issues in:
+- **ins**: 
+- **del**
+- **upd**
+
+# SQL
+# Indexing
+

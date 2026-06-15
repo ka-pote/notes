@@ -1,10 +1,8 @@
 # Recap
 ## 2D array
-
-### Pass by Reference
 ## S T R I N G S !
 ## Dynamic Memory Allocation
-In languages like C, you need your memory to expand, you're going to need dynamic allocation. (standard)C in particular, uses malloc and calloc.
+In languages like C, if you need your memory to expand, you're going to need dynamic allocation. (standard)C in particular, uses malloc and calloc.
 
 
 ### Malloc
@@ -165,3 +163,18 @@ while(current != NULL){
 ![[ITE14-Data_Structures_And_Algorithms 2026-02-16 15.38.16.excalidraw]]
 # Stack
 ![[ITE14-Data_Structures_And_Algorithms 2026-02-16 16.12.10.excalidraw]]
+# Tree
+
+![[ITE14-Data_Structures_And_Algorithms 2026-04-13 15.35.31.excalidraw]]
+# Graph
+- a !linear ds consisting of a finite set
+# Master's Theorem
+- a tool used to solve recurrence relations that arise in the analysis of divide-and-conquer algos
+- provides a systematic way of solving recurrence rel of the ff form:
+$$T(n) = aT \bigg(\frac{n}{b}\bigg)+f(n)$$
+Where:
+- $n$ is problem size
+- $a \geq 1$ is the number of subproblems
+- $\dfrac{n}{b}$ is size of each subproblem
+- $f(n)$ cost of work done outside recusive calls
+- 
